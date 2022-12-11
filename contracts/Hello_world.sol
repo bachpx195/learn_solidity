@@ -10,12 +10,14 @@ contract Hello {
     uint number;    // 1,2,3...
     address sender; // 0x...2323
     bytes32 data; // cho data dạng hằng số để tiết kiệm
+    bool isTrue = true;
 
     // variable-size types
     string name; // "hello"
     bytes data_no_lenght;
     uint[] amounts; // [1,2,3,4] cung kieu du lieu trong 1 array
-    mapping (address => bool) whitelist; // giong voi object trong js, 0x...1213 --> true 
+    mapping (address => bool) whitelist; // giong voi object trong js, 0x...1213 --> true
+    mapping (address => uint) balances;
 
     // user define 
     struct User {
@@ -55,5 +57,21 @@ contract Hello {
 
 
     // controll structures
-    
+
+    // Array
+    // Storage array
+    // - Luu o tren blockchain, khi iterator qua cac element thi se bi tinh phi gas
+    // - State variable- khai bao ngoai function
+    // Memory array
+    // - Luu trong bo nho, khi iterator thi khong bi tinh phi gas
+    // - Khai bao trong function
+    // Array as parameter
+
+    // Mapping
+    function foo() external {
+        // default value
+        // khi mot key khong co thi se tra ve gia tri mac dinh cua arry
+        balances[KeyNotExits] ==> false;
+        
+    }
 } 
